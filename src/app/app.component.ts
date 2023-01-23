@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'routing-app';
+  title = 'Learn Angular';
+  // use ngModel
+  name: String = "Angular";
+  condition: boolean = true;
+  testStyle: any = "text-3xl text-orange-500";
+  // isFirstComponent = true;
+
+  isFirstComponent = window.location.pathname === '/first-component';
+
 }

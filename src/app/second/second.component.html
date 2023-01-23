@@ -1,0 +1,14 @@
+<div>
+  <button type="button" (click)="dec()" title="smaller" class="btn btn-primary">
+    -
+  </button>
+  <button
+    type="button"
+    (click)="inc()"
+    title="bigger"
+    class="btn btn-secondary"
+  >
+    +
+  </button>
+  <span class="block" [style.font-size.px]="size">FontSize: {{ size }}px</span>
+</div>

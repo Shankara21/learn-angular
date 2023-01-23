@@ -1,0 +1,219 @@
+<div class="container">
+  <div class="grid gap-4 sm:grid-cols-3">
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] my-5 mx-2 sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Interpolation</h1>
+        <hr />
+        <p>title : {{ title }}</p>
+        <p>title to uppercase : {{ title.toUpperCase() }}</p>
+        <p>title length : {{ title.length }}</p>
+        <p>title concatenation : {{ "ini title " + title }}</p>
+        <!-- Operation -->
+        <p>1 + 1 = {{ 1 + 1 }}</p>
+        <p>1 * 1 = {{ 1 * 1 }}</p>
+      </div>
+    </div>
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Class Binding</h1>
+        <hr />
+        <!-- Start -->
+        <p [class]="testStyle">HALOOOO</p>
+        <p [class.text-5xl]="condition">HALOOOO</p>
+        <p [ngClass]="'text-2xl underline text-success'">Testing.</p>
+      </div>
+    </div>
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Property Binding</h1>
+        <hr />
+        <!-- Condition -->
+        <p *ngIf="condition">{{ condition }}</p>
+        <p class="{{ condition ? 'text-success' : 'text-red-600' }}">
+          {{ condition }}
+        </p>
+      </div>
+    </div>
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Style Binding</h1>
+        <hr />
+        <p [style.color]="'red'">Testing style binding</p>
+      </div>
+    </div>
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Event Binding</h1>
+        <hr />
+        <!-- make event binding -->
+        <button (click)="onClick()" class="btn bg-slate-500">Click Me</button>
+        <div class="shadow-xl card w-96 bg-base-100 w-fit" *ngIf="show">
+          <div class="card-body">
+            <h2 class="card-title">Shoes!</h2>
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div class="justify-end card-actions">
+              <button class="btn btn-primary">Buy Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Two Way Binding</h1>
+        <hr />
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Your Username</span>
+          </label>
+          <label class="input-group">
+            <span>Username</span>
+            <input
+              type="text"
+              placeholder="user123"
+              class="input input-bordered"
+              [(ngModel)]="username"
+            />
+          </label>
+        </div>
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text">Your Email</span>
+          </label>
+          <label class="input-group">
+            <span>Email</span>
+            <input
+              type="text"
+              placeholder="info@site.com"
+              class="input input-bordered"
+              [(ngModel)]="email"
+            />
+          </label>
+        </div>
+
+        <p class="text-xl text-slate-700">Username : {{ username }}</p>
+        <p class="text-xl text-slate-700">Email : {{ email }}</p>
+      </div>
+    </div>
+    <div class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5">
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Structural Directives</h1>
+        <hr />
+        <p class="text-2xl font-bold underline">*ngIf</p>
+        <a class="text-black btn bg-slate-300 w-fit" (click)="structure()"
+          >Change value</a
+        >
+        <p *ngIf="structural; else secondOption">
+          Bernilai :
+          <span class="text-xl font-bold text-success">{{ structural }}</span>
+        </p>
+        <ng-template #secondOption>
+          <p>
+            Bernilai :
+            <span class="text-xl font-bold text-red-600">{{ structural }}</span>
+          </p></ng-template
+        >
+        <p class="mt-3 text-2xl font-bold underline">*ngSwitch</p>
+        <input
+          type="range"
+          min="1"
+          max="5"
+          value="1"
+          class="range"
+          step="1"
+          [(ngModel)]="mySwitch"
+        />
+        <div class="flex justify-between w-full px-2 text-xs">
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+        </div>
+        <div [ngSwitch]="mySwitch">
+          <div *ngSwitchCase="1">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3840/3840653.png"
+              width="100px"
+              alt=""
+            />
+          </div>
+          <div *ngSwitchCase="2">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3601/3601634.png"
+              width="100px"
+              alt=""
+            />
+          </div>
+          <div *ngSwitchCase="3">
+            <img
+              src="https://ik.imagekit.io/siapahayo/number-3.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674466892659"
+              width="100px"
+              alt=""
+            />
+          </div>
+          <div *ngSwitchCase="4">
+            <img
+              src="https://ik.imagekit.io/siapahayo/number-four.png?ik-sdk-version=javascript-1.4.3&updatedAt=1674466653134"
+              width="100px"
+              alt=""
+            />
+          </div>
+          <div *ngSwitchCase="5">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/3601/3601646.png"
+              width="100px"
+              alt=""
+            />
+          </div>
+        </div>
+        <p class="mt-3 text-2xl font-bold underline">*ngFor</p>
+        <ul class="w-56 menu bg-base-100 rounded-box">
+          <li *ngFor="let item of items">
+            <a class="btn btn-ghost" href="{{ item.url }}" target="_blank">
+              <img src="{{ item.image }}" alt="" width="25px" />
+              {{ item.name }} docs</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5"
+      style="background-color: color"
+    >
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Component Intercations</h1>
+        <hr />
+        <app-second [(size)]="fontSizePx"></app-second>
+        <div [style.font-size.px]="fontSizePx">Resizable Text</div>
+      </div>
+    </div>
+    <div
+      class="card w-96 bg-base-100 shadow-xl bg-[#16213E] sm:my-5 overflow-auto"
+    >
+      <div class="card-body">
+        <h1 [ngClass]="'text-3xl my-5 card-title'">Pipes</h1>
+        <hr />
+        <p class="text-2xl font-bold underline">Date Pipe</p>
+        <p>{{ date | date : "dd/MM/yyyy" }}</p>
+        <p class="text-2xl font-bold underline">Currency Pipe</p>
+        <p>{{ currency | currency : "IDR" }}</p>
+        <p class="text-2xl font-bold underline">Decimal Pipe</p>
+        <p>{{ decimal | number : "1.2-2" }}</p>
+        <p class="text-2xl font-bold underline">Percent Pipe</p>
+        <p>{{ percent | percent : "1.2-2" }}</p>
+        <p class="text-2xl font-bold underline">Slice Pipe</p>
+        <p>{{ slice | slice : 0 : 11 }}</p>
+        <p class="text-2xl font-bold underline">UpperCase Pipe</p>
+        <p>{{ uppercase | uppercase }}</p>
+        <p class="text-2xl font-bold underline">LowerCase Pipe</p>
+        <p>{{ lowercase | lowercase }}</p>
+        <p class="text-2xl font-bold underline">TitleCase Pipe</p>
+        <p>{{ titlecase | titlecase }}</p>
+        <p class="text-2xl font-bold underline">Json Pipe</p>
+        <p>{{ json | json }}</p>
+      </div>
+    </div>
+  </div>
+</div>
